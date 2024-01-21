@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医联体</title>
+    <link rel="stylesheet" href="style1.css">
+    <!-- ... -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+    <!-- ... -->
+    <title>Map Search</title>
+    <script src="https://js.arcgis.com/4.22/"></script>
+    <!-- 引入 Leaflet 库 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- 引入 Leaflet.Esri 插件 -->
+    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+    <!-- 引入 Leaflet-Control-Geocoder 插件 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+</head>
+<body>
+    <header>
+        <img class="rounded-circle" src="th.jpg" alt="logo" style="height: 45px">
+        <h1>东莞市医联体服务系统</h1>
+    </header>
+
+    <div id="top-container">
+        <!-- 上方的查询部分 -->
+        <button id="nearest-hospital">最邻近查询</button>
+        <button id="best-treatment">最优治疗查询</button>
+        <button id="best-accessibility">最佳可达性查询</button>
+        <input type="text" id="search-input" placeholder="点击地图或输入地点获取经纬坐标">
+        <button id="search-button">搜索地点</button>
+      </div>
+
+    <div id="main-container">
+  
+        <div id="map-box"></div>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+        <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+
+            <div id="controls-box">
+                <label for="longitude">经度：</label>
+                <input type="text" id="longitude" readonly>
+                <label for="latitude">纬度：</label>
+                <input type="text" id="latitude" readonly>
+                <!-- 新增查询结果框 -->
+                <div class="info-box">
+                <h3>查询结果属性表</h3>
+              </div>
+                <div id="hospital-attributes">
+                    <!-- 最邻近医院属性相关内容 -->
+                    
+                  </div>
+                  <div class="info-box">
+                    <h3>所在医联体：</h3>
+                  </div>
+                  <div id="result-box">
+                    
+                   
+                    <!-- 最邻近医院网页跳转相关内容 -->
+            
+                  </div>
+                
+            </div>
+
+        </div>
+        
+    </div>
+    <script>
+      const queryButton2 = document.getElementById("nearest-hospital");
+      const resultBox = document.getElementById("result-box");
+        queryButton2.addEventListener("click", () => {
+          // 模拟从数据库获取的查询结果
+          const queryResults = [
+          { text: "东莞市人民医院", link: "hospital.html" },
+         { text: "东莞市东华医院", link: "hospita2.html" },
+        { text: "东莞市中医院", link: "hospita3.html" }
+          // 可以有更多的结果
+          ];
+        // 清空之前的结果
+        resultBox.innerHTML = "";
+
+            // 将查询结果添加到结果框中
+            queryResults.forEach(result => {
+            const resultItem = document.createElement("p");
+
+            // 创建带有超链接的元素
+            const link = document.createElement("a");
+            link.href = result.link; // 设置超链接的地址
+            link.textContent = result.text;
+
+            // 将带有超链接的元素添加到结果项中
+            resultItem.appendChild(link);
+
+            // 将结果项添加到结果框中
+            resultBox.appendChild(resultItem);
+            });
+        });
+        
+      // const queryButton = document.getElementById("nearest-hospital");
+      // const resultBox = document.getElementById("result-box");
+  
+      // queryButton.addEventListener("click", () => {
+      //     const hospitalNames = window.getHospitalNames();
+      //     if (hospitalNames && hospitalNames.length >= 2) {
+      //         const hospitalName = hospitalNames[1];
+  
+      //         var queryResults = [];
+              
+      //         if (hospitalName === "东莞市人民医院") {
+      //             queryResults = [
+      //                 { text: "所在医联体", link: "hospital.html" },
+      //             ];
+      //         } else if (hospitalName === "东莞市东华医院") {
+      //             queryResults = [
+      //                 { text: "所在医联体", link: "hospital2.html" },
+      //             ];
+      //         } else if (hospitalName === "东莞市中医院") {
+      //             queryResults = [
+      //                 { text: "所在医联体", link: "hospital3.html" },
+      //             ];
+      //         }
+  
+      //         // 清空之前的结果
+      //         resultBox.innerHTML = "";
+  
+      //         // 将查询结果添加到结果框中
+      //         queryResults.forEach(result => {
+      //             const resultItem = document.createElement("p");
+  
+      //             // 创建带有超链接的元素
+      //             const link = document.createElement("a");
+      //             link.href = result.link; // 设置超链接的地址
+      //             link.textContent = result.text;
+  
+      //             // 将带有超链接的元素添加到结果项中
+      //             resultItem.appendChild(link);
+  
+      //             // 将结果项添加到结果框中
+      //             resultBox.appendChild(resultItem);
+      //         });
+      //     }
+      // });
+        
+        // const queryButton2 = document.getElementById("best-accessibility")
+        // queryButton2.addEventListener("click", () => {
+        //   // 模拟从数据库获取的查询结果
+        //   const queryResults = [
+        //   { text: "所在医联体", link: "hospital.html" },
+        //  { text: "二级诊疗体", link: "hospital2.html" },
+        // { text: "一级诊疗体", link: "hospital3.html" },
+        // { text: "社区诊疗体", link: "link4.html" }
+        //   // 可以有更多的结果
+        //   ];
+        // // 清空之前的结果
+        // resultBox.innerHTML = "";
+
+        //     // 将查询结果添加到结果框中
+        //     queryResults.forEach(result => {
+        //     const resultItem = document.createElement("p");
+
+        //     // 创建带有超链接的元素
+        //     const link = document.createElement("a");
+        //     link.href = result.link; // 设置超链接的地址
+        //     link.textContent = result.text;
+
+        //     // 将带有超链接的元素添加到结果项中
+        //     resultItem.appendChild(link);
+
+        //     // 将结果项添加到结果框中
+        //     resultBox.appendChild(resultItem);
+        //     });
+        // });
+        // const queryButton3 = document.getElementById("best-treatment")
+        // queryButton3.addEventListener("click", () => {
+        //     resultBox.innerHTML = "";
+        //     window.location.href = '../Web-master/html/myorder.html';
+        // // 将查询结果添加到结果框中
+        // queryResults.forEach(result => {
+        // const resultItem = document.createElement("p");     });
+        //         });
+        </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,63 @@
+/* 删除不必要的CSS */
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12, .container-fluid, .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  .footer {
+    height: auto;
+    background: #02263f;
+    padding-bottom: 30px; /* 调整底部内边距 */
+  }
+  
+  .footer .box {
+    max-width: 100%; /* 修改宽度为100% */
+  }
+  
+  .footer .left {
+    font-size: 26px;
+    line-height: normal; /* 使用默认行高 */
+    color: #ffffff;
+    text-align: center; /* 文本居中 */
+  }
+  
+  .footer ul {
+    list-style: none;
+    text-align: center; /* 列表居中 */
+
+  }
+  
+  .footer ul li {
+    display: inline-block; /* 横向排列列表项 */
+    margin-right: 20px; /* 调整列表项间距 */
+  }
+  
+  .footer ul li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .footer .right {
+    display: flex;
+    justify-content: center; /* 内容居中 */
+    margin-top: 0px;
+    color: #ffffff;
+  }
+  
+  .footer .right span {
+    width: 115px;
+    height: 115px;
+    display: block;
+    margin: 10px 10px;
+    text-align: center;
+    font-size: 15px;
+    line-height: normal; /* 使用默认行高 */
+  }
+  
+  .footer .right span img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* 其他样式根据需要添加 */
+  

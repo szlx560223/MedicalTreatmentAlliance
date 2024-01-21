@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PostgreSQL Query Result</title>
+</head>
+<body>
+  <h1>PostgreSQL Query Result</h1>
+  <div id="result"></div>
+
+  <script>
+    async function fetchData() {
+      const response = await fetch('http://localhost:3000');
+      const data = await response.json();
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>

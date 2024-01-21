@@ -1,0 +1,570 @@
+/* 全局样式 */
+a {
+  text-decoration: none;
+  font-weight: normal; /* 默认字体粗细 */
+}
+
+/* 当鼠标悬停在超链接上时 */
+a:hover {
+  font-weight: bold; /* 悬停时字体加粗 */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    }
+    #header-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 125px;
+    background: linear-gradient(rgba(255, 255, 255, 0.392), #223f4c); /* 从上到下的渐变 */
+    
+    }
+    #image-layer {
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    }
+    #image-layer p {
+        font-size: 56px; /* 设置字体大小为56号 */
+        font-family: 'KaiTi', '楷体', serif; /* 设置字体为楷书，如果楷体不可用，则回退到serif字体 */
+        font-weight: bold; /* 字体加粗 */
+        color: #000000;
+        background-color: #ffffff3d; /* 设置背景颜色为灰色 */
+      }
+      #image-layer p::before {
+        content: '';
+        display: inline-block;
+        width: 100px; /* 图标的宽度 */
+        height: 100px; /* 图标的高度 */
+        background-image: url('picture/东华.jpg'); /* 图片的路径 */
+        background-size: contain;
+        background-color: #ffffff00;
+        background-repeat: no-repeat;
+        margin-right: 10px; /* 在图标和文字之间添加一些空间 */
+      }
+    /* 导航栏样式 */
+    nav {
+    background-color: #223f4c;
+    }
+    nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    }
+    nav li {
+    float: left;
+    }
+    nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    nav a:hover {
+    background-color: #ffffffb9;
+    }
+  #left-panel-container {
+      padding: 10px;
+      border-bottom: 1px solid #ccc; /* 添加底部边框作为分界线 */
+      /* 其他样式 */
+    }
+  .left-panel-container h1 {
+      text-align: center; /* 使文字居中 */
+      justify-content: center;
+    align-items: center;
+    font-size: 40px; /* 设置字体大小为56号 */
+    font-family: 'KaiTi', '楷体', serif;
+    }
+/* 主内容区域样式 */
+#main-content {
+    display: flex;
+    border: 1px solid #ccc; /* 添加边框 */
+  }
+  
+  
+  /* 左侧面板样式 */
+  #left-panel1 {
+    flex: 1;
+    border-right: 2px solid #ccc; /* 右边的分隔线 */
+    padding: 20px;
+    display: flex; /* 启用flex布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    background-color: #ffffff; /* 设置背景颜色为灰色 */
+  }
+  
+  #left-panel1 .text-box {
+    border: 1px solid #ccc; /* 文字框的边框 */
+    margin-bottom: 20px; /* 文字框之间的距离 */
+    padding: 10px; /* 文字框内的填充 */
+   
+  }
+  /* 左侧面板中的信息框样式 */
+  #left-panel1 .info-box {
+    display: flex;
+    flex-direction: column; /* 设置为竖向排列 */
+    align-items:center; /* 左对齐 */
+    border: 1px solid #ccc;
+    padding: 28px;
+    margin-bottom: 10px;
+  width: 25%; /* 设置每个信息框占据25%宽度 */
+  }
+
+  
+  .info-title {
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 20px;
+    font-family: 'KaiTi', '楷体', serif; /* 设置字体为楷书，如果楷体不可用，则回退到serif字体 */
+    font-weight: bold; /* 字体加粗 */
+    color: #000000;
+
+  }
+  .info-head p {
+    margin-bottom: 20px; /* 在标题下方增加一些空间 */
+  }
+  
+  .info-data {
+    color: #3333333f;
+    font-size: 28px;
+    font-family: 'KaiTi', '楷体', serif; /* 设置字体为楷书，如果楷体不可用，则回退到serif字体 */
+    font-weight: bold; /* 字体加粗 */
+    color: #000000;
+  }
+  /* 右侧面板样式 */
+  #right-panel1 {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  #right-panel1 img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc; /* 图片的边框 */
+  }
+  
+  /* 响应式设计 - 当屏幕宽度小于 600px 时 */
+  @media screen and (max-width: 600px) {
+    #main-content {
+      flex-direction: column;
+    }
+    #left-panel1, #right-panel1 {
+      border: none;
+    }
+  }
+  
+    /* 首页部分样式 */
+    #home {
+      background-color: #f2f2f2;
+      font-size: 20px;
+      padding: 50px;
+      align-items: flex-start; /* 垂直对齐方式为顶部对齐 */
+      display: flex; /* 使用弹性布局 */
+      flex-direction: column; /* 设置主轴方向为垂直方向 */
+    }
+    
+
+    #image-container {
+      width: 100%;
+      height: 600px; /* 设置图片容器高度 */
+      overflow: hidden;
+    }
+  
+    #image-container img {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+  
+    #buttons-container {
+      position: absolute;
+      top: 140%; /* 调整按钮容器到图片的下方 */
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+  
+    .button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: gray;
+      cursor: pointer;
+    }
+  
+    .button.active {
+      background-color: rgb(13, 255, 0); /* 设置当前图片对应按钮的颜色 */
+    }
+
+
+
+    /* 标题样式 */
+    h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+    }
+
+
+
+/* 新闻与事件部分样式 */
+#news {
+  background-color: #fff;
+  padding: 2%;
+}
+
+#news h2 {
+  color: #333;
+}
+
+/* 对应于您 HTML 中的 .index_3 */
+.index_3 {
+  padding: 0 0 0 50px;
+  width: 80%; /* 您可能需要调整此宽度值 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* 对应于您 HTML 中的 .li */
+.li {
+  margin-bottom: 20px;
+  flex-basis: calc(33.333% - 20px); /* 根据需要调整宽度 */
+  min-height: 200px; /* 设置一个最小高度，根据需要调整 */
+  box-sizing: border-box;
+  overflow: auto; /* 允许在需要时显示滚动条 */
+}
+
+.li .con, .li .img {
+  box-sizing: border-box;
+}
+
+.news-content h3, .news-list li a {
+  white-space: nowrap; /* 防止文本换行 */
+  overflow: hidden; /* 隐藏超出容器的文本 */
+  text-overflow: ellipsis; /* 使用省略号表示被裁剪的文本 */
+  word-wrap: break-word; /* 在长单词或URL等情况下允许换行 */
+}
+
+
+
+/* 新闻内容的样式 */
+.news-content h3 {
+  margin-top: 0;
+  /* 标题样式 */
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  /* 新闻列表样式 */
+}
+
+.news-list li {
+  margin-bottom: 10px; /* 列表项间距 */
+}
+
+.news-list li a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* 考虑响应式设计 */
+@media screen and (max-width: 600px) {
+  .index_3 {
+    flex-direction: column;
+  }
+
+  .li {
+    flex-basis: 100%; /* 在小屏幕上，每个新闻项占据全宽 */
+    margin-bottom: 10px;
+  }
+}
+
+    
+/* 服务总览部分的卡片样式 */
+#services {
+  background-color: #fff;
+  padding: 20px 0px 0px 0px;
+  }
+#services ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+#services ul li {
+  list-style:none;
+  width: 200px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+.index_1 .wrap{ position: relative; height:100%; z-index:10; top:0; }
+.index_1 .wrap .tit{ position: absolute; width:400px; height:250px; right:50px; text-align: right; color:#fff; top:50%; margin-top:-125px; text-shadow:0px 0px 10px rgba(0,0,0,0.2);  behavior: url(css/PIE.htc);}
+.index_1 .wrap .tit h2{ line-height:1.2; font-size:48px; padding-bottom: 20px; }
+.index_1 .wrap .tit p{ line-height:1.5; font-size:12px; }
+
+.index_2{ padding:60px 0 0; }
+.index_2 li{ float: left; width:300px; height:207px; background:url(../picture/ind_2.jpg) no-repeat center; text-align: center; -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.2); box-shadow: 0px 0px 10px rgba(0,0,0,0.2);  behavior: url(css/PIE.htc);}
+.index_2 li .a{ display: block; height:100%; }
+
+.index_2 li .ico{ padding:55px 0 10px; }
+.index_2 li .ico img{ height:65px; width:80px; display: block; margin:0 auto; }
+.index_2 li h3{ text-align: center; color:#fff; font-size:18px; }
+
+.index_2 .li_2{ background:#e5ca8f; margin-left: 10px; }
+.index_2 .li_3{ background:url(../picture/ind_3.jpg) no-repeat center; margin-left: 10px;}
+.index_2 .li_3 h3{ color:#474747; } 
+.index_2 .li_4{ background:#71d19b; margin-left: 10px; }
+.index_2 .li_5{ background:#ec9a7c; margin-left: 10px; }
+
+.index_3,.index_5{ width:1251px; margin-left:-10px; padding-top:60px; }
+.index_3 .li{ float: left; width:397px; -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.2); box-shadow: 0px 0px 10px rgba(0,0,0,0.2);  behavior: url(css/PIE.htc); margin:0 10px; }
+.index_3 .li .con{ height:210px; background:#fff; }
+.index_3 .li .tit{ padding:25px 20px 0; }
+.index_3 .li .tit h3{ font-size:24px; line-height:1.1; padding-bottom: 15px; }
+.index_3 .li .tit h3 a.fr{ float: right; font-size:12px; line-height:24px; transition:all 0.3s; -webkit-transition:all 0.3s; width:90px; border:1px solid #eee; border-radius:10px; text-align: center; color:#474747; }
+.index_3 .li .tit h3 a.fr:hover{ background:#2fbe74; color:#fff; border-color:#01763a; }
+.index_3 .li li{ line-height:40px; border-top:1px solid #eee; font-size:14px; }
+
+
+.index_3 .li li a{ display: block; }
+.index_3 .li li:first-child{ border-top:0; }
+
+.index_3 .li .img{ padding-bottom: 57%; position: relative; }
+.index_3 .li .img a{  position: absolute; width:100%; height:100%; top:0; left:0; }
+.index_3 .li img{ display: block; width:100%; height:100%; }
+
+#services .ico {
+  margin-bottom: 10px;
+}
+
+
+
+
+/* 三级医院部分样式调整 */
+#classthree {
+  background-color: #ffffff42;
+  padding: 0px; 
+  
+  max-height: 400px;
+}
+#up-panel2{
+  border-right: 3px solid #ccc; /* 右边的分隔线 */
+}
+#down-panel2{
+  border-right: 3px solid #ccc; /* 右边的分隔线 */
+  display: flex; /* 启用flex布局 */
+  flex-wrap: wrap; /* 允许换行 */
+  background-color: #ffffff; /* 设置背景颜色为灰色 */
+  justify-content: center; /* 在主轴上居中对齐 */
+}
+#down-panel2 .info-box {
+  display: flex;
+  flex-direction:column; /* 设置为竖向排列 */
+  align-items:center; 
+  border: 1px solid #ccc;
+  padding: 2px;
+  margin-bottom: 10px;
+  margin: 5px; /* 设置每个信息框之间的间隔为10px，可以根据需要调整 */
+  width: 20%; /* 设置每个信息框占据20%宽度 */
+  border-radius: 10px; /* 设置圆角半径为10px，可以根据需要调整 */
+  transition: background-color 0.3s; /* 添加过渡效果 */
+}
+#down-panel2 .info-box:hover {
+  background-color: #e0e0e0; /* 鼠标悬停时的背景颜色 */
+}
+
+
+.right-panel2 {
+  flex: 1; /* 右侧框占据四分之一宽度 */
+}
+
+
+#down-panel2 .info-head p {
+  margin-bottom: 20px; /* 在标题下方增加一些空间 */
+}
+
+#down-panel2 .info-data {
+  color: #3333333f;
+  font-size: 20px;
+  font-family: 'KaiTi', '楷体', serif; /* 设置字体为楷书，如果楷体不可用，则回退到serif字体 */
+  font-weight: bold; /* 字体加粗 */
+  color: #000000;
+}
+
+.zjjsList{ background: #fff; position: relative; margin-top:0px;}
+.zjjsList span.aniu{ position: absolute; top:122px; display: block; width: 41px; height:41px; }
+.zjjsList span.prev{left: 18px;top:230px; background: url(../picture/subH_42.png) no-repeat top center;}
+.zjjsList span.next{right: 18px;top:230px; background: url(../picture/subH_421.png) no-repeat top center;}
+.zjjsList span.prev:hover{ background: url(../picture/subH_451.png) no-repeat top center;}
+.zjjsList span.next:hover{ background: url(../picture/subH_45.png) no-repeat top center;}
+.zjjsList ul li{text-align: center; margin: 0px 0 21px;}
+.zjjsList ul li .text{padding: 10px 0 0;}
+.zjjsList ul li h2{font-size: 14px; color: #000000; margin: 0 0 3px;}
+.zjjsList ul li p{ font-size: 12px; color: #7a7a7a;margin: 0;}
+.zjjsList ul li a.pic img {
+  width: 150px;  /* 调整图片宽度 */
+  height: 200px; /* 调整图片高度 */
+  border-radius: 70%; /* 圆形图片 */
+  margin-bottom: 80px; /* 图片下方留白 */
+}
+
+.bottom1{ margin-top: 22px; background: #657a9a; color: #fff;}
+.bottom1 a {
+    color: #fff;
+}
+.Htitle { padding-bottom: 0px; line-height: 33px; }
+.Htitle1 { background: #ffffff; padding: 16px 14px;}
+.Htitle2 { background: #51a6f9; padding: 16px 14px;}
+.Htitle a{ float: right; font-size: 14px; color: #7b828e;}
+.Htitle a:hover,.HNotic li.tit a:hover h2{   color: #000000; }
+.Htitle .Tb4{  background: url(../picture/subH_29.png) no-repeat left top;}
+.Htitle span{display: inline-block; height: 33px; padding-left: 43px; font-size: 18px; color: #00080f; font-weight:bold; 
+}
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  #classthree .doctor-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 调整网格尺寸 */
+  }
+}
+
+    /* 二级医院部分样式 */
+    #classtwo {
+    background-color:rgb(249, 249, 249);
+    padding: 40px 0 0 0;
+    }
+    .left-panel3 {
+      flex: 2; /* 右侧框占据四分之三宽度 */
+    }
+    .right-panel3 {
+      flex: 1; /* 右侧框占据四分之一宽度 */
+    }
+    #down-panel3{
+      display: flex; /* 启用flex布局 */
+      flex-wrap: wrap; /* 允许换行 */
+      background-color:rgb(249, 249, 249);
+      justify-content: center; /* 在主轴上居中对齐 */
+      border-bottom: 1px solid #ccc; /* 下边的分隔线 */
+    }
+
+    #down-panel3 .info-head p {
+      margin-bottom: 20px; /* 在标题下方增加一些空间 */
+      
+    }
+    #down-panel3 .info-box {
+      display: flex;
+      flex-direction:column; /* 设置为竖向排列 */
+      align-items:center; 
+      border: 1px solid #999999;
+      padding: 10px;
+      margin-bottom: 10px;
+      margin:5px 20px; /* 设置每个信息框之间的间隔为10px，可以根据需要调整 */
+      width: 20%; /* 设置每个信息框占据20%宽度 */
+      border-radius: 10px; /* 设置圆角半径为10px，可以根据需要调整 */
+      transition: background-color 0.3s; /* 添加过渡效果 */
+    }
+    #down-panel3 .info-data {
+      color: #3333333f;
+      font-size: 20px;
+      font-family: 'KaiTi', '楷体', serif; /* 设置字体为楷书，如果楷体不可用，则回退到serif字体 */
+      font-weight: bold; /* 字体加粗 */
+      color: #000000;
+    }
+    #down-panel3 .info-box:hover {
+      background-color: #e0e0e0; /* 鼠标悬停时的背景颜色 */
+    }
+    #classtwo h2 {
+    color: #333;
+    padding: 0px;
+    }
+    #classtwo p {
+      color: #666;
+    }
+    /* 一级医院 */
+    #classone {
+    background-color: #fff;
+    padding: 0px;
+    }
+    #classone h2 {
+    color: #333;
+    }
+   
+    #classtwo p {
+      color: #666;
+    }
+    /* 服务和特色部分样式 */
+    #others {
+    background-color: #f9f9f9;
+    padding: 0px;
+    }
+    #others h2 {
+    color: #333;
+    }
+
+
+ /* 联系我们部分样式 */
+#contact {
+  background-color: #fff;
+  padding: 50px;
+  text-align: center;
+}
+
+#contact form {
+  max-width: 500px;
+  margin: auto;
+}
+    /* 在这里可以继续添加其他部分的样式 */
+    /* 响应式布局 */
+@media (max-width: 768px) {
+  #services ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #services ul li {
+    width: 100%;
+  }
+
+  .section {
+    padding: 30px;
+  }
+}
+    
+/* 返回顶部链接样式 */
+#return a#return-btn {
+  color: #017bff;
+  text-decoration: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#return a#return-btn:hover {
+  background-color: #017bff;
+  color: #030303;
+}
+
+    /* 响应式设计 - 当屏幕宽度小于 600px 时调整样式 */
+    @media screen and (max-width: 600px) {
+   
+    }
