@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东省医联体服务系统</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* 顶部区域的高度 */
+            background-color: rgba(17, 153, 158,0.6);
+            color: #ffffff; /* 白色文字 */
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000; /* 确保顶部区域在地图上方 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .header .logo img {
+                height: 40px;
+                width: auto;
+                margin-right: 20px;
+            }
+
+            .header .title {
+                font-size: 50px;
+                font-family: '隶书', serif;
+                font-weight: normal;
+            }
+
+        .buttons-container {
+            margin-left: auto; /* 将按钮容器推到右边 */
+            display: flex;
+            gap: 10px; /* 按钮之间的间距 */
+            padding-right: 25px; /* 右侧留出一定的距离 */
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .buttons-container button {
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                background-color: #e4f9f5;
+                color: #40514e;
+                cursor: pointer;
+                font-family: 'Microsoft Yahei', sans-serif;
+                font-weight: bold;
+            }
+        h1 {
+            text-align: center;
+            color: black;
+            margin-top: 60px; /* 向下移动 */
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex; /* 使用 flexbox 来布局 */
+            align-items: center; /* 垂直居中对齐 */
+        }
+
+        label {
+            display: block;
+            margin-right: 16px; /* label 与 input 之间的间距 */
+            font-weight: bold;
+            color: #555;
+            white-space: nowrap; /* 防止 label 换行 */
+        }
+
+        input, select, textarea {
+            flex: 1; /* 使输入框自适应宽度 */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .autocomplete-suggestions {
+            border: 1px solid #ddd;
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+            z-index: 1000;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .autocomplete-suggestion {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+            .autocomplete-suggestion:hover {
+                background-color: #f0f0f0;
+            }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .radio-group label {
+                margin-bottom: 8px;
+            }
+
+        /* 基本按钮样式 */
+        button {
+            padding: 10px 20px;
+            border: 0px solid; /* 为按钮添加边框 */
+            border-radius: 5px;
+            font-size: 16px;
+            color: black; /* 按钮文字颜色 */
+            background-color: transparent; /* 背景透明 */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+            button:hover {
+                background-color: transparent; /* 悬停时背景色 */
+                color: white; /* 悬停时文字颜色 */
+                transform: scale(1.05); /* 悬停时放大效果 */
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="th.png" alt="Logo"> <!-- 替换为实际的 Logo URL -->
+        </div>
+        <div class="title">广东省医联体服务系统</div>
+        <div class="buttons-container">
+            <button id="viewing">查看患者体验</button>
+            <button id="best-treatment">返回最优治疗查询</button>
+            <button id="main">返回最邻近查询</button>
+        </div>
+    </div>
+    <h1>医院就诊评价</h1>
+    <form id="evaluationForm">
+        <div class="form-group">
+            <label for="hospital">医院名称：</label>
+            <input type="text" id="hospital" name="hospital" autocomplete="off" onkeyup="fetchSuggestions()" required>
+            <div id="suggestions" class="autocomplete-suggestions"></div>
+        </div>
+        <div class="form-group">
+            <label>总体满意度：</label>
+            <div class="radio-group">
+                <label><input type="radio" name="overallRating" value="1" required> 非常不满意</label>
+                <label><input type="radio" name="overallRating" value="2"> 不满意</label>
+                <label><input type="radio" name="overallRating" value="3"> 一般</label>
+                <label><input type="radio" name="overallRating" value="4"> 满意</label>
+                <label><input type="radio" name="overallRating" value="5"> 非常满意</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>服务态度：</label>
+            <div class="radio-group">
+                <label><input type="radio" name="serviceRating" value="1" required> 非常差</label>
+                <label><input type="radio" name="serviceRating" value="2"> 较差</label>
+                <label><input type="radio" name="serviceRating" value="3"> 一般</label>
+                <label><input type="radio" name="serviceRating" value="4"> 良好</label>
+                <label><input type="radio" name="serviceRating" value="5"> 优秀</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>设施设备：</label>
+            <div class="radio-group">
+                <label><input type="radio" name="facilitiesRating" value="1" required> 非常差</label>
+                <label><input type="radio" name="facilitiesRating" value="2"> 较差</label>
+                <label><input type="radio" name="facilitiesRating" value="3"> 一般</label>
+                <label><input type="radio" name="facilitiesRating" value="4"> 良好</label>
+                <label><input type="radio" name="facilitiesRating" value="5"> 优秀</label>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>环境卫生：</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cleanlinessRating" value="1" required> 非常差</label>
+                <label><input type="radio" name="cleanlinessRating" value="2"> 较差</label>
+                <label><input type="radio" name="cleanlinessRating" value="3"> 一般</label>
+                <label><input type="radio" name="cleanlinessRating" value="4"> 良好</label>
+                <label><input type="radio" name="cleanlinessRating" value="5"> 优秀</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comments">其他意见或建议：</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+        </div>
+
+        <button type="submit">提交</button>
+    </form>
+
+    <script>
+        function fetchSuggestions() {
+            const input = document.getElementById('hospital').value;
+            if (input.length < 2) {
+                document.getElementById('suggestions').innerHTML = '';
+                return;
+            }
+
+            // 发送 GET 请求到后端的 .ashx 文件，查询医院名称
+            fetch(`handle_name.ashx?query=${encodeURIComponent(input)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // 假设后端返回的是 JSON 数据
+                })
+                .then(data => {
+                    const suggestions = document.getElementById('suggestions');
+                    suggestions.innerHTML = data.map(hospital => `
+                                <div class="autocomplete-suggestion" onclick="selectSuggestion('${hospital}')">
+                                    ${hospital}
+                                </div>
+                            `).join('');
+                })
+                .catch(error => {
+                    console.error('错误:', error);
+                });
+
+        }
+
+        function selectSuggestion(hospital) {
+            document.getElementById('hospital').value = hospital;
+            document.getElementById('suggestions').innerHTML = '';
+        }
+
+        document.getElementById('evaluationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('handle_evaluate.ashx', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('感谢您的反馈！');
+                        document.getElementById('evaluationForm').reset();
+                    } else {
+                        console.error('服务器错误:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('错误:', error);
+                });
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("viewing");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../wordCloud.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("best-treatment");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../best_treatment.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("main");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../main.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+
+</body>
+</html>

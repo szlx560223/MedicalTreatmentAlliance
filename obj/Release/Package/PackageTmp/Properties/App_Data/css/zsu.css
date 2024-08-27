@@ -1,0 +1,231 @@
+html, body, #Main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    background-color: #E9F4FE;
+}
+
+div{
+    font-size: 12px;
+}
+
+.q-table {
+    font-size: 12px;
+    border: 1px solid;
+}
+
+.q-tr {
+    border: 1px solid;
+}
+
+.q-td {
+    border: 1px solid;
+}
+
+.toolbar_default
+{
+    background-image: url('../images/Default.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_adddata
+{
+    background-image: url('../images/AddData.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+
+
+.toolbar_zoomin
+{
+    background-image: url('../images/ZoomInTool.png');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_zoomout
+{
+    background-image: url('../images/ZoomOutTool.png');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_fullextent
+{
+    background-image: url('../images/FullMap.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_nextextent
+{
+    background-image: url('../images/Next.gif');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_prevextent
+{
+    background-image: url('../images/Pre.gif');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_selectbypoint
+{
+    background-image: url('../images/SelectFea.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_selectbyenvelope
+{
+    background-image: url('../images/ENVSelect.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_selectbypolygon
+{
+    background-image: url('../images/PolygonSelect.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_identify
+{
+    background-image: url('../images/QueryByPnt.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_drawpoint
+{
+    background-image: url('../images/DrawPnt.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_drawrectangle
+{
+    background-image: url('../images/DrawRectangle.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_drawline
+{
+    background-image: url('../images/DrawLine.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_drawpolygon
+{
+    background-image: url('../images/DrawPly.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_drawcircle
+{
+    background-image: url('../images/DrawCircle.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_cleardraw
+{
+    background-image: url('../images/DELETE1.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.toolbar_query
+{
+    background-image: url('../images/Proper.bmp');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+
+.tab {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #000000;
+    height: 18px;
+    width: 70px;
+    display: block;
+    margin-right: 0px;
+    float: left;
+    text-align: center;
+    padding-top: 2px;
+    background-color: #CCCCCC;
+    cursor: hand;
+}
+.a-tab {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+    height: 18px;
+    width: 70px;
+    display: block;
+    margin-right: 0px;
+    float: left;
+    text-align: center;
+    padding-top: 2px;
+    background-color: #FFFFFF;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #000000;
+    border-right-color: #000000;
+    border-bottom-color: #FFFFFF;
+    border-left-color: #000000;
+    cursor: hand;
+}
+.tr2 {
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    padding: 0px;
+    overflow:scroll;
+    width:290px;
+    height:130px;
+
+}
+.tr1 {
+    height: 21px;
+}

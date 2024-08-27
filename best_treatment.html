@@ -1,0 +1,500 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>广东省医联体服务系统</title>
+    <link rel="stylesheet" type="text/css" href="../css/style2.css">
+    <link rel="stylesheet" type="text/css" href="../css/style1.css">
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #00aaff, #0044cc);
+            background-image: url('bt_bg.png'); 
+            background-size: cover;
+            background-position: center;
+
+        }
+        ul {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* 顶部区域的高度 */
+            background-color: rgba(17, 153, 158,0.6);
+            color: #ffffff; /* 白色文字 */
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000; /* 确保顶部区域在地图上方 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .header .logo img {
+                height: 40px;
+                width: auto;
+                margin-right: 20px;
+            }
+
+            .header .title {
+                font-size: 50px;
+                font-family: '隶书', serif;
+                font-weight: normal;
+            }
+        .buttons-container {
+            margin-left: auto; /* 将按钮容器推到右边 */
+            display: flex;
+            gap: 10px; /* 按钮之间的间距 */
+            padding-right: 25px; /* 右侧留出一定的距离 */
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+            .buttons-container button {
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                background-color: #e4f9f5;
+                color: #40514e;
+                cursor: pointer;
+                font-family: 'Microsoft Yahei', sans-serif;
+                font-weight: bold;
+            }
+        .myorder {
+            margin-left:5px;/* 调整这个值以适应你的需求 */
+        }
+        .buttons-container button:hover {
+            background-color: #e4f9f5;
+        }
+
+        /* Main 样式 */
+        .myorder {
+            text-align: center;
+            padding: 20px;
+        }
+
+            .myorder h1 {
+                color: #40514e;
+                font-size: 28px;
+                margin: 0;
+            }
+
+        #main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        #map-box {
+            flex: 1;
+            height: 400px;
+            background-color: #e9ecef;
+        }
+
+        #controls-box {
+            width: 100%;
+            max-width: 500px; /* 放大控制框的最大宽度 */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 18px;
+            width: 100%;
+        }
+        #query-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #e4f9f5;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 18px; /* 向下移动 */
+            margin-left: 40px; /* 向右移动 */
+        }
+
+            #query-button:hover {
+                background-color: rgba(17, 153, 158,0.6); /* 悬停时的背景色，与其他按钮一致 */
+            }
+
+        /* 基本按钮样式 */
+        button {
+            padding: 10px 20px;
+            border: 0px solid; /* 为按钮添加边框 */
+            border-radius: 5px;
+            font-size: 16px;
+            color: black; /* 按钮文字颜色 */
+            background-color: transparent; /* 背景透明 */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+            button:hover {
+                background-color: transparent; /* 悬停时背景色 */
+                color: white; /* 悬停时文字颜色 */
+                transform: scale(1.05); /* 悬停时放大效果 */
+            }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="th.png" alt="Logo"> <!-- 替换为实际的 Logo URL -->
+        </div>
+        <div class="title">广东省医联体服务系统</div>
+        <div class="buttons-container">
+            <button id="evaluating-viewing">就诊评价</button>
+            <button id="viewing">查看患者体验</button>
+            <button id="main">返回最邻近查询</button>
+        </div>
+    </div>
+
+    <div class="myorder">
+        <h1 class="m" style="color: #40514e">查询最优治疗医院</h1>
+    </div>
+    <div id="main-container">
+        <div id="map-box"></div>
+        <div id="controls-box">
+
+            <form action="#" method="post">
+                <label for="departments" >科室（请选择或输入）:</label>
+                <input list="departments" id="department-input" name="department">
+                <datalist id="departments">
+                    <select id="first-level" name="first-level">
+                        <option value="ICU科">ICU科</option>
+                        <option value="病理科">病理科</option>
+                        <option value="不孕不育科">不孕不育科</option>
+                        <option value="产科">产科</option>
+                        <option value="超声科">超声科</option>
+                        <option value="传染科">传染科</option>
+                        <option value="儿科">儿科</option>
+                        <option value="儿童保健科">儿童保健科</option>
+                        <option value="耳鼻喉科">耳鼻喉科</option>
+                        <option value="耳鼻咽喉科">耳鼻咽喉科</option>
+                        <option value="耳鼻咽喉头颈外科">耳鼻咽喉头颈外科</option>
+                        <option value="放疗科">放疗科</option>
+                        <option value="放射科">放射科</option>
+                        <option value="风湿科">风湿科</option>
+                        <option value="风湿免疫科">风湿免疫科</option>
+                        <option value="妇产科">妇产科</option>
+                        <option value="妇科">妇科</option>
+                        <option value="肝胆科">肝胆科</option>
+                        <option value="肝病科">肝病科</option>
+                        <option value="肝胆外科">肝胆外科</option>
+                        <option value="感染科">感染科</option>
+                        <option value="肛肠科">肛肠科</option>
+                        <option value="肛肠外科">肛肠外科</option>
+                        <option value="骨科">骨科</option>
+                        <option value="骨伤科">骨伤科</option>
+                        <option value="骨外科">骨外科</option>
+                        <option value="核医学科">核医学科</option>
+                        <option value="呼吸科">呼吸科</option>
+                        <option value="呼吸内科">呼吸内科</option>
+                        <option value="急诊科">急诊科</option>
+                        <option value="脊柱外科">脊柱外科</option>
+                        <option value="检验科">检验科</option>
+                        <option value="介入科">介入科</option>
+                        <option value="精神科">精神科</option>
+                        <option value="康复科">康复科</option>
+                        <option value="康复医学科">康复医学科</option>
+                        <option value="口腔颌面外科">口腔颌面外科</option>
+                        <option value="口腔科">口腔科</option>
+                        <option value="老年病科">老年病科</option>
+                        <option value="老年科">老年科</option>
+                        <option value="麻醉科">麻醉科</option>
+                        <option value="泌尿科">泌尿科</option>
+                        <option value="泌尿外科">泌尿外科</option>
+                        <option value="男科">男科</option>
+                        <option value="脑外科">脑外科</option>
+                        <option value="内分泌科">内分泌科</option>
+                        <option value="内科">内科</option>
+                        <option value="皮肤科">皮肤科</option>
+                        <option value="皮肤性病科">皮肤性病科</option>
+                        <option value="普通外科">普通外科</option>
+                        <option value="普外科">普外科</option>
+                        <option value="乳腺科">乳腺科</option>
+                        <option value="乳腺外科">乳腺外科</option>
+                        <option value="烧伤科">烧伤科</option>
+                        <option value="烧伤整形科">烧伤整形科</option>
+                        <option value="神经内科">神经内科</option>
+                        <option value="神经外科">神经外科</option>
+                        <option value="肾病科">肾病科</option>
+                        <option value="肾病内科">肾病内科</option>
+                        <option value="肾内科">肾内科</option>
+                        <option value="肾脏科">肾脏科</option>
+                        <option value="肾脏内科">肾脏内科</option>
+                        <option value="生殖医学科">生殖医学科</option>
+                        <option value="手外科">手外科</option>
+                        <option value="糖尿病科">糖尿病科</option>
+                        <option value="疼痛科">疼痛科</option>
+                        <option value="体检中心">体检中心</option>
+                        <option value="推拿科">推拿科</option>
+                        <option value="外科">外科</option>
+                        <option value="微创外科">微创外科</option>
+                        <option value="胃肠外科">胃肠外科</option>
+                        <option value="五官科">五官科</option>
+                        <option value="消化科">消化科</option>
+                        <option value="消化内科">消化内科</option>
+                        <option value="小儿外科">小儿外科</option>
+                        <option value="心内科">心内科</option>
+                        <option value="心外科">心外科</option>
+                        <option value="心胸外科">心胸外科</option>
+                        <option value="心血管科">心血管科</option>
+                        <option value="心血管内科">心血管内科</option>
+                        <option value="心血管外科">心血管外科</option>
+                        <option value="新生儿科">新生儿科</option>
+                        <option value="胸外科">胸外科</option>
+                        <option value="胸心外科">胸心外科</option>
+                        <option value="血管外科">血管外科</option>
+                        <option value="血液科">血液科</option>
+                        <option value="血液内科">血液内科</option>
+                        <option value="眼科">眼科</option>
+                        <option value="药剂科">药剂科</option>
+                        <option value="医学影像科">医学影像科</option>
+                        <option value="影像科">影像科</option>
+                        <option value="针灸科">针灸科</option>
+                        <option value="整形美容科">整形美容科</option>
+                        <option value="整形外科">整形外科</option>
+                        <option value="中西医结合科">中西医结合科</option>
+                        <option value="中医科">中医科</option>
+                        <option value="肿瘤科">肿瘤科</option>
+                        <option value="肿瘤内科">肿瘤内科</option>
+                        <option value="肿瘤生物治疗中心">肿瘤生物治疗中心</option>
+                        <option value="肿瘤外科">肿瘤外科</option>
+
+
+                        <!-- 添加更多的一级选项 -->
+                    </select>
+                </datalist>
+                <br>
+            </form>
+            <script>
+                // 将事件绑定到文档加载完成后执行的函数
+                document.addEventListener("DOMContentLoaded", function () {
+                    // 绑定 onchange 事件
+                    document.getElementById("first-level");
+                });
+
+
+                // second-level 的 onchange 事件监听器
+                function handleSecondLevelChange() {
+                    //var firstLevelSelected = document.getElementById("first-level").text;
+                    //var secondLevelSelected = document.getElementById("second-level").value;
+                    console.log("First Level Selected:", firstLevelSelected);
+
+
+                    // 处理用户选择的症状和子症状
+                    console.log("一级选项：" + firstLevelSelected);
+                }
+            </script>
+            <button id="query-button" style="color: #40514e">查询</button>
+        </div>
+    </div>
+
+
+    </div>
+
+    <div id="tableContainer"></div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var firstLevelSelected; // 在作用域外声明
+
+            document.getElementById("first-level").addEventListener("change", function () {
+                // 更新 firstLevelSelected 的值
+                firstLevelSelected = document.getElementById("first-level").value;
+            });
+
+            var queryButton = document.getElementById("query-button");
+
+            queryButton.addEventListener("click", function (event) {
+                event.preventDefault(); // 阻止表单默认提交行为
+                console.log("Button clicked!"); // 添加这行
+                var firstLevelSelected = document.getElementById("first-level").value;
+
+                console.log("First Level Selected:", firstLevelSelected);
+
+
+                // 执行查询的请求，直接使用下拉框的值
+                performQuery(firstLevelSelected);
+            });
+        });
+
+        function performQuery(firstLevelSelected) {
+            // 构建发送到服务器的数据对象
+            var requestData = {
+                firstLevelSelected: firstLevelSelected
+            };
+
+            var data = {
+                action: "filter_data",
+                data: requestData
+            };
+            console.log("Request Data:", { firstLevelSelected }); // 添加这行
+            // 使用fetch API发送请求
+            fetch('handle.ashx', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json;charset=UTF-8"
+                }
+            })
+                .then(res => {
+                    if (res.ok) {
+                        const contentLength = res.headers.get('Content-Length');
+                        if (contentLength && parseInt(contentLength, 10) === 0) {
+                            // 响应体为空，不执行 res.json()
+                            throw Error('Empty response');
+                        }
+                        return res.json();
+                    } else {
+                        throw Error('请求错误');
+                    }
+                })
+                .then(resJson => {
+                    clear();
+                    if (resJson.Result && resJson.Result.length > 0) {
+                        fillTable(resJson.Result);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error making the request:", error);
+                });
+        }
+        function clear() {
+            // 在此添加代码来清除页面上的内容
+            // 例如，如果结果是追加到名为 "main-container" 的容器中，可以使用以下代码：
+            var mainContainer = document.getElementById("main-container");
+            mainContainer.innerHTML = "";
+        }
+
+
+        function goBack() {
+            window.history.back();
+        }
+        function fillTable(data) {
+            // Clear any existing content in the table or display area
+            var tableContainer = document.getElementById("tableContainer");
+            tableContainer.innerHTML = "";
+
+            // Check if there are results in the data
+            if (data && data.length > 0) {
+                // Display the result in the HTML
+                var resultHtml = "<table border='1'><tr><th>排名</th><th>医院名称</th><th>网址链接</th><th>挂号</th><th>医院别名</th><th>等级</th><th>重点科室</th><th>医院地址</th><th>电话</th></tr>";
+
+                // Iterate over each row in the data
+                for (var i = 0; i < data.length; i++) {
+                    var resultContent = data[i];
+                    // Append a new row to the table for each result
+                    resultHtml += "<tr>" +
+                        "<td>" + resultContent.ID + "</td>" +
+                        "<td>" + resultContent.医院名称 + "</td>" +
+                        "<td><button onclick='window.open(\"" + resultContent.网址链接 + "\")'>查看详情</button></td>" + // Link button
+                        "<td><button onclick='window.open(\"" + resultContent.网址链接 + "\")'>挂号</button></td>" + // Registration button
+                        "<td>" + resultContent.别名 + "</td>" +
+                        "<td>" + resultContent.等级 + "</td>" +
+                        "<td>" + resultContent.重点科室 + "</td>" +
+                        "<td>" + resultContent.医院地址 + "</td>" +
+                        "<td>" + resultContent.电话 + "</td>" +
+                        "</tr>";
+                }
+
+                resultHtml += "</table>";
+
+                // Display the result in the current page
+                tableContainer.innerHTML = resultHtml;
+            } else {
+                // Display a message if there are no results
+                alert("No results found.");
+            }
+
+        }
+
+        function viewDetails(link) {
+            // Open a new window to display the detail page
+            window.open(link, "_blank");
+        }
+
+
+
+    </script>
+
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("viewing");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../wordCloud.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("evaluating-viewing");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../Evaluating.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("main");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../main.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+
+
+
+</body>
+</html>

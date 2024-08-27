@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>广东省医联体服务系统</title>
+    <link href="../css/style1.css" rel="stylesheet" media="screen" type="text/css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/style2.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.dialog.js"></script>
+    <script src="../js/carts.js"></script>
+    <script src="../js/universial.js"></script>
+    <script src="/js/echarts.min.js"></script>
+    <script src="/js/echarts-wordcloud.js"></script>
+    <style>
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* 顶部区域的高度 */
+            background-color: rgba(17, 153, 158,0.6);
+            color: #ffffff; /* 白色文字 */
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000; /* 确保顶部区域在地图上方 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .header .logo img {
+                height: 40px;
+                width: auto;
+                margin-right: 20px;
+            }
+
+            .header .title {
+                font-size: 50px;
+                font-family: '隶书', serif;
+                font-weight: normal;
+            }
+
+        .buttons-container {
+            margin-left: auto; /* 将按钮容器推到右边 */
+            display: flex;
+            gap: 10px; /* 按钮之间的间距 */
+            padding-right: 25px; /* 右侧留出一定的距离 */
+        }
+
+            .buttons-container button {
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                background-color: #e4f9f5;
+                color: #40514e;
+                cursor: pointer;
+                font-family: 'Microsoft Yahei', sans-serif;
+                font-weight: bold;
+            }
+        /* 基本按钮样式 */
+        button {
+            padding: 10px 20px;
+            border: 0px solid; /* 为按钮添加边框 */
+            border-radius: 5px;
+            font-size: 16px;
+            color: black; /* 按钮文字颜色 */
+            background-color: transparent; /* 背景透明 */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+            button:hover {
+                background-color: transparent; /* 悬停时背景色 */
+                color: white; /* 悬停时文字颜色 */
+                transform: scale(1.05); /* 悬停时放大效果 */
+            }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 80px;
+            text-align: center;
+            background-color: #f4f4f9; /* 添加一个浅色背景 */
+        }
+
+        .form-group {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+            .form-group label {
+                font-size: 18px;
+                white-space: nowrap;
+            }
+
+            .form-group input {
+                padding: 8px;
+                width: 300px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group button {
+                padding: 10px 20px;
+                background-color: #11a7c8;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+                .form-group button:hover {
+                    background-color: #0e8aa5;
+                }
+
+        .autocomplete-suggestions {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px; /* 固定宽度 */
+            max-height: 200px; /* 限制最大高度 */
+            overflow-y: auto; /* 滚动条 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            top: 100%; /* 下拉框紧跟输入框下方 */
+            left: 100; /* 将下拉框左对齐输入框 */
+        }
+
+        .autocomplete-suggestion {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+            .autocomplete-suggestion:hover {
+                background-color: #f0f0f0;
+            }
+
+        #wordcloud-container {
+            margin-top: 40px;
+        }
+
+        #main {
+            width: 80%;
+            max-width: 600px;
+            height: 400px;
+            margin: 10px auto;
+            background-color: white; /* 给词云图添加背景色 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="th.png" alt="Logo"> <!-- 替换为实际的 Logo URL -->
+        </div>
+        <div class="title">广东省医联体服务系统</div>
+        <div class="buttons-container">
+            <button id="evaluating-viewing">就诊评价</button>
+            <button id="best-treatment">返回最优治疗查询</button>
+            <button id="nearest-hospital">返回最邻近查询</button> <!-- 修改ID -->
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="hospital">医院名称：</label>
+        <input type="text" id="hospital" name="hospital" autocomplete="off" onkeyup="fetchSuggestions()" required>
+        <div id="suggestions" class="autocomplete-suggestions"></div>
+        <button type="button" id="search-btn" onclick="fetchWordCloud()">查询</button>
+    </div>
+
+    <!-- 词云图的容器 -->
+    <div id="wordcloud-container">
+        <div id="main"></div>
+    </div>
+
+
+
+
+    <!-- 脚本部分 -->
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+
+        function fetchWordCloud() {
+            const hospitalName = document.getElementById('hospital').value;
+
+            if (!hospitalName) {
+                alert("请先输入医院名称！");
+                return;
+            }
+
+            fetch('handle_figure.ashx', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ hospitalName: hospitalName })  // 修改为 hospitalName
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data.Result)) {
+                        const chartData = data.Result.map(item => ({
+                            name: item.Name,
+                            value: item.Count
+                        }));
+                        updateChart(chartData);
+                    } else {
+                        console.error('Error: Data is not an array');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function updateChart(data) {
+            myChart.setOption({
+                series: [{
+                    name: '数量',
+                    type: 'wordCloud',
+                    data: data
+                }]
+            });
+        }
+
+        function fetchSuggestions() {
+            const input = document.getElementById('hospital').value;
+            if (input.length < 2) {
+                document.getElementById('suggestions').innerHTML = '';
+                return;
+            }
+
+            fetch(`handle_name.ashx?query=${encodeURIComponent(input)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const suggestions = document.getElementById('suggestions');
+                    suggestions.innerHTML = data.map(hospital => `
+                <div class="autocomplete-suggestion" onclick="selectSuggestion('${hospital}')">
+                    ${hospital}
+                </div>
+            `).join('');
+                })
+                .catch(error => console.error('错误:', error));
+        }
+
+        function selectSuggestion(hospital) {
+            document.getElementById('hospital').value = hospital;
+            document.getElementById('suggestions').innerHTML = '';
+        }
+    </script>
+
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("best-treatment");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../best_treatment.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("evaluating-viewing");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../Evaluating.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("nearest-hospital");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = '../main.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+
+</body>
+</html>
+

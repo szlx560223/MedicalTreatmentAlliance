@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东省医联体服务系统</title>
+    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="./picture/th.png" alt="Logo"> <!-- 替换为实际的 Logo URL -->
+        </div>
+        <div class="title">广东省医联体服务系统</div>
+        <div class="buttons-container">
+            <button id="best-treatment">最优治疗查询</button>
+            <button id="evaluating-viewing">评价和查看</button>
+            <button id="viewing">查看患者体验</button>
+        </div>
+    </div>
+    <div id="map"></div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="输入位置...">
+        <button onclick="searchLocation()">标记</button>
+        <div id="resultBox">
+            <p id="resultText" style="color: #e4f9f5; font-family: Arial, sans-serif;font-weight: bold; font-size: 16px; white-space: pre-line; ">点击地图获取经纬度</p>
+            <button id="hospitalButton" onclick="window.open(hospitalUrl, '_blank')">查看医院</button>
+        </div>
+    </div>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("best-treatment");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = 'best_treatment.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("evaluating-viewing");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = 'Evaluating.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script>
+        // 获取best-treatment按钮
+        var bestTreatmentButton = document.getElementById("viewing");
+
+        // 添加点击事件处理程序
+        bestTreatmentButton.addEventListener("click", function () {
+            // 设置要跳转的网址
+            var targetUrl = 'wordCloud.html';
+
+            // 使用window.location.href进行页面导航
+            window.location.href = targetUrl;
+        });
+    </script>
+    <script src="./js/script1.js"></script>
+</body>
+</html >

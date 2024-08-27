@@ -1,0 +1,11 @@
+E:\webgis\hospitalpage_db\bin\Trip.dll.config
+E:\webgis\hospitalpage_db\bin\Trip.dll
+E:\webgis\hospitalpage_db\bin\Trip.pdb
+E:\webgis\hospitalpage_db\bin\Controller.pdb
+E:\webgis\hospitalpage_db\bin\DAL.pdb
+E:\webgis\hospitalpage_db\bin\Model.pdb
+E:\webgis\hospitalpage_db\obj\Release\Trip.csproj.AssemblyReference.cache
+E:\webgis\hospitalpage_db\obj\Release\Trip.csproj.CoreCompileInputs.cache
+E:\webgis\hospitalpage_db\obj\Release\Trip.csproj.Up2Date
+E:\webgis\hospitalpage_db\obj\Release\Trip.dll
+E:\webgis\hospitalpage_db\obj\Release\Trip.pdb

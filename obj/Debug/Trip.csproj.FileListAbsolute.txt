@@ -1,0 +1,130 @@
+D:\temp\Trip\bin\Trip.dll.config
+D:\temp\Trip\bin\Trip.dll
+D:\temp\Trip\bin\Trip.pdb
+D:\temp\Trip\bin\BLL.pdb
+D:\temp\Trip\bin\Common.pdb
+D:\temp\Trip\bin\DAL.pdb
+D:\temp\Trip\bin\IBLL.pdb
+D:\temp\Trip\bin\IDAL.pdb
+D:\temp\Trip\obj\Debug\Trip.csprojResolveAssemblyReference.cache
+D:\temp\Trip\obj\Debug\Trip.dll
+D:\temp\Trip\obj\Debug\Trip.pdb
+D:\temp\WGS\Trip1\bin\Trip.dll.config
+D:\temp\WGS\Trip1\bin\Trip.dll
+D:\temp\WGS\Trip1\bin\Trip.pdb
+D:\temp\WGS\Trip1\obj\Debug\Trip.dll
+D:\temp\WGS\Trip1\obj\Debug\Trip.pdb
+D:\temp\WGS\Trip1\obj\Debug\Trip.csprojResolveAssemblyReference.cache
+D:\temp\WGS\Trip1\bin\BLL.pdb
+D:\temp\WGS\Trip1\bin\Common.pdb
+D:\temp\WGS\Trip1\bin\DAL.pdb
+D:\temp\WGS\Trip1\bin\IBLL.pdb
+D:\temp\WGS\Trip1\bin\IDAL.pdb
+D:\temp\WGS\Trip1\bin\Model.pdb
+F:\教学\2020年教学(下)\Trip1\bin\Trip.dll.config
+F:\教学\2020年教学(下)\Trip1\bin\Trip.dll
+F:\教学\2020年教学(下)\Trip1\bin\Trip.pdb
+F:\教学\2020年教学(下)\Trip1\bin\BLL.pdb
+F:\教学\2020年教学(下)\Trip1\bin\Common.pdb
+F:\教学\2020年教学(下)\Trip1\bin\DAL.pdb
+F:\教学\2020年教学(下)\Trip1\bin\IBLL.pdb
+F:\教学\2020年教学(下)\Trip1\bin\IDAL.pdb
+F:\教学\2020年教学(下)\Trip1\bin\Model.pdb
+F:\教学\2020年教学(下)\Trip1\obj\Debug\Trip.csprojResolveAssemblyReference.cache
+F:\教学\2020年教学(下)\Trip1\obj\Debug\Trip.dll
+F:\教学\2020年教学(下)\Trip1\obj\Debug\Trip.pdb
+E:\2021年教学(下)\Trip1\bin\Trip.dll.config
+E:\2021年教学(下)\Trip1\bin\Trip.dll
+E:\2021年教学(下)\Trip1\bin\Trip.pdb
+E:\2021年教学(下)\Trip1\bin\BLL.pdb
+E:\2021年教学(下)\Trip1\bin\Common.pdb
+E:\2021年教学(下)\Trip1\bin\DAL.pdb
+E:\2021年教学(下)\Trip1\bin\IBLL.pdb
+E:\2021年教学(下)\Trip1\bin\IDAL.pdb
+E:\2021年教学(下)\Trip1\bin\Model.pdb
+E:\2021年教学(下)\Trip1\obj\Debug\Trip.csprojResolveAssemblyReference.cache
+E:\2021年教学(下)\Trip1\obj\Debug\Trip.dll
+E:\2021年教学(下)\Trip1\obj\Debug\Trip.pdb
+D:\bootstrap\workspace\Trip\Trip1\bin\Trip.dll.config
+D:\bootstrap\workspace\Trip\Trip1\bin\Trip.dll
+D:\bootstrap\workspace\Trip\Trip1\bin\Trip.pdb
+D:\bootstrap\workspace\Trip\Trip1\obj\Debug\Trip.csprojAssemblyReference.cache
+D:\bootstrap\workspace\Trip\Trip1\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+D:\bootstrap\workspace\Trip\Trip1\obj\Debug\Trip.csproj.CopyComplete
+D:\bootstrap\workspace\Trip\Trip1\obj\Debug\Trip.dll
+D:\bootstrap\workspace\Trip\Trip1\obj\Debug\Trip.pdb
+D:\bootstrap\workspace\Trip\Trip3\bin\Trip.dll.config
+D:\bootstrap\workspace\Trip\Trip3\bin\Trip.dll
+D:\bootstrap\workspace\Trip\Trip3\bin\Trip.pdb
+D:\bootstrap\workspace\Trip\Trip3\bin\Controller.pdb
+D:\bootstrap\workspace\Trip\Trip3\obj\Debug\Trip.csprojAssemblyReference.cache
+D:\bootstrap\workspace\Trip\Trip3\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+D:\bootstrap\workspace\Trip\Trip3\obj\Debug\Trip.csproj.CopyComplete
+D:\bootstrap\workspace\Trip\Trip3\obj\Debug\Trip.dll
+D:\bootstrap\workspace\Trip\Trip3\obj\Debug\Trip.pdb
+D:\bootstrap\workspace\Trip\Trip2\bin\Trip.dll.config
+D:\bootstrap\workspace\Trip\Trip2\bin\Trip.dll
+D:\bootstrap\workspace\Trip\Trip2\bin\Trip.pdb
+D:\bootstrap\workspace\Trip\Trip2\obj\Debug\Trip.csprojAssemblyReference.cache
+D:\bootstrap\workspace\Trip\Trip2\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+D:\bootstrap\workspace\Trip\Trip2\obj\Debug\Trip.csproj.CopyComplete
+D:\bootstrap\workspace\Trip\Trip2\obj\Debug\Trip.dll
+D:\bootstrap\workspace\Trip\Trip2\obj\Debug\Trip.pdb
+D:\bootstrap\workspace\Trip\Trip2\bin\Controller.pdb
+D:\bootstrap\workspace\Trip\Trip2\bin\DAL.pdb
+D:\bootstrap\workspace\Trip\Trip2\bin\Model.pdb
+D:\SoftWare\Trip2\bin\Trip.dll.config
+D:\SoftWare\Trip2\bin\Trip.dll
+D:\SoftWare\Trip2\bin\Trip.pdb
+D:\SoftWare\Trip2\bin\Controller.pdb
+D:\SoftWare\Trip2\bin\DAL.pdb
+D:\SoftWare\Trip2\bin\Model.pdb
+D:\SoftWare\Trip2\obj\Debug\Trip.csprojAssemblyReference.cache
+D:\SoftWare\Trip2\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+D:\SoftWare\Trip2\obj\Debug\Trip.csproj.CopyComplete
+D:\SoftWare\Trip2\obj\Debug\Trip.dll
+D:\SoftWare\Trip2\obj\Debug\Trip.pdb
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\bin\Trip.dll.config
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\bin\Trip.dll
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\bin\Trip.pdb
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\bin\Controller.pdb
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\bin\DAL.pdb
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\bin\Model.pdb
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\obj\Debug\Trip.csprojAssemblyReference.cache
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\obj\Debug\Trip.csproj.CopyComplete
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\obj\Debug\Trip.dll
+D:\SoftWare\1.17_addQuery (2)\1.17_addQuery\hospitalpage_db\obj\Debug\Trip.pdb
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\bin\Trip.dll.config
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\bin\Trip.dll
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\bin\Trip.pdb
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\bin\Controller.pdb
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\bin\DAL.pdb
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\bin\Model.pdb
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\obj\Debug\Trip.csprojAssemblyReference.cache
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\obj\Debug\Trip.csproj.CopyComplete
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\obj\Debug\Trip.dll
+E:\SoftWare\1.17_addQuery (2)\hospitalpage_db\hospitalpage_db\obj\Debug\Trip.pdb
+E:\webgis\hospitalpage_db\bin\Trip.dll.config
+E:\webgis\hospitalpage_db\bin\Trip.dll
+E:\webgis\hospitalpage_db\bin\Trip.pdb
+E:\webgis\hospitalpage_db\bin\Controller.pdb
+E:\webgis\hospitalpage_db\bin\DAL.pdb
+E:\webgis\hospitalpage_db\bin\Model.pdb
+E:\webgis\hospitalpage_db\obj\Debug\Trip.csproj.AssemblyReference.cache
+E:\webgis\hospitalpage_db\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+E:\webgis\hospitalpage_db\obj\Debug\Trip.csproj.Up2Date
+E:\webgis\hospitalpage_db\obj\Debug\Trip.dll
+E:\webgis\hospitalpage_db\obj\Debug\Trip.pdb
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\bin\Trip.dll.config
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\bin\Trip.dll
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\bin\Trip.pdb
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\bin\Controller.pdb
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\bin\DAL.pdb
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\bin\Model.pdb
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\obj\Debug\Trip.csprojAssemblyReference.cache
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\obj\Debug\Trip.csproj.CoreCompileInputs.cache
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\obj\Debug\Trip.csproj.CopyComplete
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\obj\Debug\Trip.dll
+D:\Documents\WeChat Files\wxid_l94bew9aaunb22\FileStorage\File\2024-08\hospitalpage_db_1833\hospitalpage_db\obj\Debug\Trip.pdb

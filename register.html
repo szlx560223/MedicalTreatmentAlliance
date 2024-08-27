@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #00aaff, #0044cc); /* 渐变背景 */
+            background-image: url('bg_1.jpeg'); /* 背景图片 URL */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #0f7a73;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #17bdb2;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #053022;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #087852;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>注册</h1>
+        <form action="main.html" method="get">
+            <input type="text" name="username" placeholder="用户名" required>
+            <input type="email" name="email" placeholder="邮箱" required>
+            <input type="password" name="password" placeholder="密码" required>
+            <input type="submit" value="提交注册">
+        </form>
+        <a href="hello.html" class="back-link">返回主页</a>
+    </div>
+
+</body>
+</html>
